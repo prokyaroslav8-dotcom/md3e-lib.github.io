@@ -1,0 +1,322 @@
+/* ============================================================
+   MATERIAL EXPRESSIVE — design tokens
+   Typography: Google Sans Flex (variable), Google Sans Code
+   Color roles are generated at runtime with Material Color Utilities.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Google Sans Flex';
+  src: url('../fonts/GoogleSansFlexNormal.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-stretch: 25% 151%;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans Flex';
+  src: url('../fonts/GoogleSansFlex.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-stretch: 25% 151%;
+  font-style: oblique 0deg 10deg;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans Code';
+  src: url('../fonts/GoogleSansCode.woff2') format('woff2-variations');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Google Sans Flex has no public Cyrillic subset. Onest carries the Cyrillic
+   glyphs with closely matching geometry, soft terminals and full weight range. */
+@font-face {
+  font-family: 'Onest';
+  src: url('../fonts/Onest-cyrillic.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Onest';
+  src: url('../fonts/Onest-cyrillicext.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/JetBrainsMono-cyrillic.woff2') format('woff2-variations');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/JetBrainsMono-cyrillicext.woff2') format('woff2-variations');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* Display Cyrillic. Nunito Sans has generous round bowls, soft terminals and
+   an effortless optical rhythm — the closest public match to the warmth of
+   Google Sans Flex at headline sizes. */
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('../fonts/NunitoSans-cyrillic.woff2') format('woff2-variations');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('../fonts/NunitoSans-cyrillicext.woff2') format('woff2-variations');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+:root {
+  /* Fallback scheme — replaced at runtime by the dynamic color engine. */
+  --md-primary: #65558f;
+  --md-on-primary: #ffffff;
+  --md-primary-container: #e9ddff;
+  --md-on-primary-container: #22005d;
+  --md-secondary: #625b71;
+  --md-on-secondary: #ffffff;
+  --md-secondary-container: #e8def8;
+  --md-on-secondary-container: #1d192b;
+  --md-tertiary: #7d5260;
+  --md-on-tertiary: #ffffff;
+  --md-tertiary-container: #ffd8e4;
+  --md-on-tertiary-container: #31111d;
+  --md-error: #b3261e;
+  --md-on-error: #ffffff;
+  --md-error-container: #f9dedc;
+  --md-on-error-container: #410e0b;
+  --md-surface: #fdf8fd;
+  --md-surface-dim: #ded8e1;
+  --md-surface-bright: #fdf8fd;
+  --md-surface-container-lowest: #ffffff;
+  --md-surface-container-low: #f7f2fa;
+  --md-surface-container: #f3edf7;
+  --md-surface-container-high: #ece6f0;
+  --md-surface-container-highest: #e6e0e9;
+  --md-on-surface: #1d1b20;
+  --md-on-surface-variant: #49454f;
+  --md-outline: #79747e;
+  --md-outline-variant: #cac4d0;
+  --md-inverse-surface: #322f35;
+  --md-inverse-on-surface: #f5eff7;
+  --md-inverse-primary: #d0bcff;
+  --md-surface-tint: #65558f;
+  --md-scrim: #000000;
+  --md-shadow: #000000;
+  --md-primary-fixed: #e9ddff;
+  --md-primary-fixed-dim: #cfbcff;
+  --md-on-primary-fixed: #22005d;
+  --md-on-primary-fixed-variant: #4f378a;
+  --md-secondary-fixed: #e8def8;
+  --md-secondary-fixed-dim: #cbc2db;
+  --md-on-secondary-fixed: #1d192b;
+  --md-on-secondary-fixed-variant: #4a4458;
+  --md-tertiary-fixed: #ffd8e4;
+  --md-tertiary-fixed-dim: #e8b9c9;
+  --md-on-tertiary-fixed: #31111d;
+  --md-on-tertiary-fixed-variant: #633b48;
+
+  /* Public aliases used across the product. */
+  --primary: var(--md-primary);
+  --on-primary: var(--md-on-primary);
+  --primary-container: var(--md-primary-container);
+  --on-primary-container: var(--md-on-primary-container);
+  --secondary: var(--md-secondary);
+  --on-secondary: var(--md-on-secondary);
+  --secondary-container: var(--md-secondary-container);
+  --on-secondary-container: var(--md-on-secondary-container);
+  --tertiary: var(--md-tertiary);
+  --on-tertiary: var(--md-on-tertiary);
+  --tertiary-container: var(--md-tertiary-container);
+  --on-tertiary-container: var(--md-on-tertiary-container);
+  --error: var(--md-error);
+  --on-error: var(--md-on-error);
+  --error-container: var(--md-error-container);
+  --on-error-container: var(--md-on-error-container);
+  --surface: var(--md-surface);
+  --surface-dim: var(--md-surface-dim);
+  --surface-bright: var(--md-surface-bright);
+  --surface-lowest: var(--md-surface-container-lowest);
+  --surface-low: var(--md-surface-container-low);
+  --surface-container: var(--md-surface-container);
+  --surface-high: var(--md-surface-container-high);
+  --surface-highest: var(--md-surface-container-highest);
+  --on-surface: var(--md-on-surface);
+  --on-surface-variant: var(--md-on-surface-variant);
+  --outline: var(--md-outline);
+  --outline-variant: var(--md-outline-variant);
+  --inverse-surface: var(--md-inverse-surface);
+  --inverse-on-surface: var(--md-inverse-on-surface);
+  --inverse-primary: var(--md-inverse-primary);
+  --surface-tint: var(--md-surface-tint);
+  --scrim: var(--md-scrim);
+  --shadow-color: var(--md-shadow);
+
+  /* Type */
+  --font-sans: 'Google Sans Flex', 'Onest', 'Avenir Next', 'Segoe UI Variable', sans-serif;
+  --font-sans-ru: 'Google Sans Flex', 'Nunito Sans', 'Onest', 'Avenir Next', 'Segoe UI Variable', sans-serif;
+  --font-display: 'Google Sans Flex', 'Nunito Sans', 'Onest', 'Avenir Next', 'Segoe UI Variable', sans-serif;
+  --font-mono: 'Google Sans Code', 'JetBrains Mono', 'SFMono-Regular', ui-monospace, monospace;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --tracking-display: -0.045em;
+  --tracking-headline: -0.032em;
+  --tracking-title: -0.02em;
+  --tracking-body: -0.006em;
+  --tracking-label: 0.08em;
+
+  /* Space */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 28px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-14: 56px;
+  --s-16: 64px;
+  --s-20: 80px;
+  --s-24: 96px;
+  --s-32: 128px;
+
+  /* Shape */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+  --r-2xl: 36px;
+  --r-3xl: 48px;
+  --r-full: 999px;
+  --r-expressive: 30px 30px 8px 30px;
+  --r-expressive-alt: 8px 30px 30px 30px;
+  --shape-corner: var(--r-xl);
+
+  /* Elevation — tinted, low-contrast, layered rather than floaty. */
+  --elev-0: none;
+  --elev-1:
+    0 1px 2px color-mix(in srgb, var(--shadow-color) 14%, transparent),
+    0 1px 3px 1px color-mix(in srgb, var(--shadow-color) 7%, transparent);
+  --elev-2:
+    0 1px 2px color-mix(in srgb, var(--shadow-color) 16%, transparent),
+    0 2px 6px 2px color-mix(in srgb, var(--shadow-color) 8%, transparent);
+  --elev-3:
+    0 1px 3px color-mix(in srgb, var(--shadow-color) 18%, transparent),
+    0 4px 10px 3px color-mix(in srgb, var(--shadow-color) 9%, transparent);
+  --elev-4:
+    0 2px 4px color-mix(in srgb, var(--shadow-color) 18%, transparent),
+    0 7px 18px 4px color-mix(in srgb, var(--shadow-color) 10%, transparent);
+  --elev-5:
+    0 3px 6px color-mix(in srgb, var(--shadow-color) 18%, transparent),
+    0 12px 28px 6px color-mix(in srgb, var(--shadow-color) 12%, transparent);
+
+  /* Motion */
+  --dur-1: 80ms;
+  --dur-2: 140ms;
+  --dur-3: 220ms;
+  --dur-4: 320ms;
+  --dur-5: 450ms;
+  --dur-6: 620ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0, 1);
+  --ease-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0.9, 0.2, 1.06);
+  --ease-spring: linear(0, 0.004 1.2%, 0.017 2.5%, 0.047 3.8%, 0.111 5.6%, 0.235 7.9%, 0.442 10.9%, 0.693 14.5%, 0.886 18.2%, 1.007 22.2%, 1.07 26.3%, 1.089 30.5%, 1.081 34.3%, 1.06 38.1%, 1.02 44%, 0.997 50%, 0.989 56%, 0.996 68%, 1.002 80%, 1);
+  --ease-spring-soft: linear(0, 0.009 2%, 0.035 4%, 0.123 8%, 0.3 12%, 0.548 17%, 0.763 23%, 0.91 29%, 0.992 36%, 1.023 43%, 1.028 51%, 1.016 61%, 1.004 72%, 1.001 85%, 1);
+  --ease-spring-snappy: cubic-bezier(0.34, 1.48, 0.64, 1);
+
+  /* State layers */
+  --state-hover: 0.08;
+  --state-focus: 0.1;
+  --state-press: 0.1;
+  --state-drag: 0.16;
+
+  /* Layout */
+  --topbar-h: 72px;
+  --sidebar-w: 238px;
+  --content-max: 1380px;
+  --gutter: clamp(20px, 4vw, 56px);
+  --bottom-nav-h: calc(68px + env(safe-area-inset-bottom, 0px));
+
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --md-primary: #cfbcff;
+  --md-on-primary: #381e72;
+  --md-primary-container: #4f378b;
+  --md-on-primary-container: #eaddff;
+  --md-secondary: #cbc2db;
+  --md-on-secondary: #332d41;
+  --md-secondary-container: #4a4458;
+  --md-on-secondary-container: #e8def8;
+  --md-tertiary: #efb8c8;
+  --md-on-tertiary: #492532;
+  --md-tertiary-container: #633b48;
+  --md-on-tertiary-container: #ffd8e4;
+  --md-error: #f2b8b5;
+  --md-on-error: #601410;
+  --md-error-container: #8c1d18;
+  --md-on-error-container: #f9dedc;
+  --md-surface: #141218;
+  --md-surface-dim: #141218;
+  --md-surface-bright: #3b383e;
+  --md-surface-container-lowest: #0f0d13;
+  --md-surface-container-low: #1d1b20;
+  --md-surface-container: #211f26;
+  --md-surface-container-high: #2b2930;
+  --md-surface-container-highest: #36343b;
+  --md-on-surface: #e6e0e9;
+  --md-on-surface-variant: #cac4d0;
+  --md-outline: #938f99;
+  --md-outline-variant: #49454f;
+  --md-inverse-surface: #e6e0e9;
+  --md-inverse-on-surface: #322f35;
+  --md-inverse-primary: #65558f;
+  --md-surface-tint: #cfbcff;
+  --md-scrim: #000000;
+  --md-shadow: #000000;
+  --md-primary-fixed: #e9ddff;
+  --md-primary-fixed-dim: #cfbcff;
+  --md-on-primary-fixed: #22005d;
+  --md-on-primary-fixed-variant: #4f378a;
+  --md-secondary-fixed: #e8def8;
+  --md-secondary-fixed-dim: #cbc2db;
+  --md-on-secondary-fixed: #1d192b;
+  --md-on-secondary-fixed-variant: #4a4458;
+  --md-tertiary-fixed: #ffd8e4;
+  --md-tertiary-fixed-dim: #efb8c8;
+  --md-on-tertiary-fixed: #31111d;
+  --md-on-tertiary-fixed-variant: #633b48;
+  color-scheme: dark;
+}
+
+:root {
+  /* Expressive fixed accents for the app demos. */
+  --accent-rose: #b94a68;
+  --accent-amber: #ad6b00;
+  --accent-sky: #1e6b93;
+  --accent-sage: #476b54;
+  --accent-ink: #3f4a70;
+}
